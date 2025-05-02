@@ -44,11 +44,11 @@ export default function BlogPage() {
   // In a real application, this data would come from a database or CMS
   const posts = [
     {
-      title: "Getting Started with Next.js",
-      excerpt: "Learn how to build modern web applications with Next.js and React.",
-      date: "June 12, 2023",
-      slug: "getting-started-with-nextjs",
-      image: "/placeholder.svg?height=300&width=600",
+      title: "What is “static” in OOP?",
+      excerpt: "Learn about core concept of Object-Oriented Programming",
+      date: "May 22, 2023",
+      slug: "what-is-static-in-oop",
+      image: "/blogs/static_in_oop.png?height=300&width=600",
     },
     // {
     //   title: "The Power of TypeScript",

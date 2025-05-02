@@ -25,7 +25,7 @@ This is a professional portfolio website showcasing projects, skills, and a blog
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/portfolio-website.git
+   git clone https://github.com/shakerkamal/portfolio-website.git
    cd portfolio-website
    ```
 

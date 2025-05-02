@@ -61,14 +61,14 @@ export default function Home() {
       title: "E-commerce Platform",
       description: "A full-stack e-commerce solution with payment integration.",
       image: "/e-shop-dotnet.png?height=300&width=400",
-      githubUrl: "https://github.com/username/ecommerce-platform",
+      githubUrl: "https://github.com/shakerkamal/e-shop-dotnet",
       liveUrl: "https://ecommerce-platform-demo.vercel.app",
     },
     {
       title: "Task Management App",
       description: "A productivity app with drag-and-drop interface.",
       image: "/e-shop-dotnet.png?height=300&width=400",
-      githubUrl: "https://github.com/username/task-management",
+      githubUrl: "https://github.com/shakerkamal/e-shop-dotnet",
       liveUrl: "https://task-management-demo.vercel.app",
     },
   ]
@@ -76,10 +76,10 @@ export default function Home() {
   // Blog post data
   const blogPosts = [
     {
-      title: "Getting Started with Next.js",
-      excerpt: "Learn how to build modern web applications with Next.js and React.",
-      date: "June 12, 2023",
-      slug: "getting-started-with-nextjs",
+      title: "What is “static” in OOP?",
+      excerpt: "Learn about core concept of Object-Oriented Programming",
+      date: "May 22, 2023",
+      slug: "what-is-static-in-oop",
     },
   ]
 
@@ -141,7 +141,7 @@ export default function Home() {
         </div>
     )
   }
-// Project card component
+  // Project card component
   interface Project {
     title: string
     description: string
@@ -226,6 +226,21 @@ export default function Home() {
             </Button>
           </Link>
         </CardFooter>
+      </Card>
+  )
+
+  // Skill card with fill animation
+  const SkillCard = ({ skill, index }) => (
+      <Card className="skill-card relative flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:scale-[1.03] hover:border-primary/50 overflow-hidden group">
+        <div className="skill-fill absolute bottom-0 left-0 w-full bg-primary/10 transform translate-y-full transition-transform duration-500 ease-out h-full group-hover:translate-y-0 z-0"></div>
+        <CardHeader className="relative z-10">
+          <CardTitle>{skill.name}</CardTitle>
+        </CardHeader>
+        <CardContent className="relative z-10">
+          <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-foreground transition-colors duration-300">
+            {skill.level}
+          </p>
+        </CardContent>
       </Card>
   )
 
@@ -483,23 +498,25 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 relative">
+        <section id="skills" className="w-full py-12 md:py-24 lg:py-32 relative print:py-8">
           <div className="container px-4 md:px-6">
             <AnimatedSection
-              animation="fadeIn"
-              className="flex flex-col items-center justify-center space-y-4 text-center"
+                animation="fadeIn"
+                className="flex flex-col items-center justify-center space-y-4 text-center"
             >
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm print:hidden">
                   <Code className="mr-2 inline-block h-4 w-4" />
                   {t.skillsTitle}
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">{t.technologiesIWorkWith}</h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">{t.skillsDescription}</p>
+                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  {t.skillsDescription}
+                </p>
               </div>
               <AnimatedSection
-                animation="stagger"
-                className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3"
+                  animation="stagger"
+                  className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3 print:py-4"
               >
                 {[
                   { name: "C#" },
@@ -516,18 +533,11 @@ export default function Home() {
                   { name: "Redis" },
                   { name: "Azure" },
                 ].map((skill, index) => (
-                  <AnimatedItem key={skill.name} index={index}>
-                    <ParallaxElement speed={0.1} direction={index % 2 === 0 ? "up" : "down"}>
-                      <Card className="flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:scale-[1.03] hover:border-primary/50">
-                        <CardHeader>
-                          <CardTitle>{skill.name}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          {/*<p className="text-sm text-gray-500 dark:text-gray-400">{skill.level}</p>*/}
-                        </CardContent>
-                      </Card>
-                    </ParallaxElement>
-                  </AnimatedItem>
+                    <AnimatedItem key={skill.name} index={index}>
+                      <ParallaxElement speed={0.1} direction={index % 2 === 0 ? "up" : "down"}>
+                        <SkillCard skill={skill} index={index} />
+                      </ParallaxElement>
+                    </AnimatedItem>
                 ))}
               </AnimatedSection>
             </AnimatedSection>
