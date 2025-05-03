@@ -298,7 +298,7 @@ export default function Home() {
         <ParallaxBackground className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative print:py-8">
           <FloatingShapes count={8} color="var(--foreground)" className="print:hidden" />
           <div className="container px-4 md:px-6 relative z-10">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+            <div className="grid items-center gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <AnimatedSection animation="slideRight" duration={0.7}>
                 <div className="flex flex-col justify-center space-y-4">
                   <div className="space-y-2">
@@ -375,11 +375,11 @@ export default function Home() {
                 <ParallaxElement speed={0.3} direction="up">
                   <div className="flex items-center justify-center">
                     <Image
-                        src="/main.jpg?height=600&width=600"
+                        src="/main.jpg?height=400&width=400"
                         alt="Hero Image"
-                        width={600}
-                        height={600}
-                        className="rounded-lg object-cover transition-all duration-500 hover:shadow-xl"
+                        width={400}
+                        height={400}
+                        className="rounded-full object-cover transition-all duration-500 hover:shadow-xl"
                         priority
                     />
                   </div>
@@ -559,7 +559,7 @@ export default function Home() {
                 </p>
               </div>
               <AnimatedSection animation="fadeIn" delay={0.2} className="w-full max-w-5xl mx-auto py-12">
-                <ContentSlider itemsPerSlide={3} autoPlay={true} autoPlayInterval={6000}>
+                <ContentSlider itemsPerSlide={1} autoPlay={true} autoPlayInterval={6000}>
                   {projects.map((project, index) => (
                       <ProjectCard key={index} project={project} index={index} />
                   ))}
